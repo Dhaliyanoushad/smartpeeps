@@ -1,14 +1,11 @@
-import { BrowserRouter as Router } from "react-router-dom";
-import RouterConfig from "./router";
-import Navbar from "./components/Navbar";
+import AppRouter from "./router";
 
-function App() {
+const App = () => {
   return (
-    <Router>
-      <Navbar />
-      <RouterConfig />
-    </Router>
+    <div className="bg-[#0A0908] text-white min-h-screen">
+      <AppRouter />
+    </div>
   );
-}
+};
 
 export default App;

@@ -1,4 +1,6 @@
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Attendance from "./pages/Attendance";
@@ -9,20 +11,24 @@ import Reports from "./pages/Reports";
 import Login from "./pages/Login";
 import Settings from "./pages/Settings";
 
-const RouterConfig = () => {
+const AppRouter = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/attendance" element={<Attendance />} />
-      <Route path="/devices" element={<Devices />} />
-      <Route path="/tracking" element={<Tracking />} />
-      <Route path="/alerts" element={<Alerts />} />
-      <Route path="/reports" element={<Reports />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/settings" element={<Settings />} />
-    </Routes>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/attendance" element={<Attendance />} />
+          <Route path="/devices" element={<Devices />} />
+          <Route path="/tracking" element={<Tracking />} />
+          <Route path="/alerts" element={<Alerts />} />
+          <Route path="/reports" element={<Reports />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 };
 
-export default RouterConfig;
+export default AppRouter;
